@@ -1,0 +1,33 @@
+
+
+- Turn all of the workers into transform streams
+- When someone wants to run a function, instead of providing args, they provide what they want to do
+  - map
+    - if you want to base future transforms based of the original and the transformed value, I suggest you return { transformed, original } instead of just transformed
+  - Expand/Contract maps a value to an array and writes each element to the output
+    - You can use this for filtering
+    - There would probably be a helper function that would
+      - run the function
+      - check if the result was false or true
+        - if true - return [the element]
+        - if false - return []
+    - The person should be able to map/expand contract at the same time
+  - Reduce function
+    - This requires waiting as it needs two items at a time while a few can be run in parrallel, the next value needs to wait until a sibling is finished
+  - Ordered Map/Expand/Contract/Reduce
+    - This keeps the indexes of each item and tries to ensure they are in the correct order
+  - arbitrary transforms
+    - provide a push, pop, unshift, shift, write function and an end functions
+      - the push/pop/unshift/shift
+  - Ending a stream early
+    - For reduces, sometimes the function will throw in the middle of it and expect no new items
+    - I'm unsure if theres a way to unpipe a stream from the inside.
+    - but if a stream is finished, they can at least tell their manager
+    - Also a transform can end early.
+      - when that happens, i don't know what their readable is supposed to do
+- I think it's a good idea to keep promises seperate
+  - and possibly build a callback version as well
+  - events are not too different from transforms so it doesn't make sense to do that
+  - although it is interesting to just build transforms and make everything based off that
+  - It might be a good idea to allow readables or writeables as well
+- When something
