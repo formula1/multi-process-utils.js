@@ -1,0 +1,24 @@
+{
+  "name": "multi-process-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "typings": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formula1/multi-process-utils.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/formula1/multi-process-utils.js/issues"
+  },
+  "homepage": "https://github.com/formula1/multi-process-utils.js#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.15",
+    "typescript": "^4.5.5"
+  }
+}
